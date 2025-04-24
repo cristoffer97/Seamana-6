@@ -1,0 +1,66 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+---
+
+<BaseLayout title="Inicio">
+  <style>
+    body {
+      font-family: 'Arial', sans-serif;
+      background-color: #f4f4f4;
+      margin: 0;
+      padding: 0;
+      color: #333;
+    }
+
+    h1 {
+      color: #1a73e8;
+      text-align: center;
+      margin-top: 50px;
+    }
+
+    p {
+      font-size: 18px;
+      color: #333;
+      text-align: center;
+      margin-top: 20px;
+    }
+
+    footer {
+      background-color: #333;
+      color: #fff;
+      text-align: center;
+      padding: 10px;
+      margin-top: 50px;
+    }
+
+    a {
+      color: #1a73e8;
+      text-decoration: none;
+    }
+
+    a:hover {
+      text-decoration: underline;
+    }
+
+    .contact-link,
+    .about-link {
+      display: block;
+      margin-top: 30px;
+      text-align: center;
+    }
+  </style>
+
+  <h1>Bienvenido a mi sitio Astro 🚀</h1>
+  <p>Esta es la página de inicio.</p>
+
+  <div class="contact-link">
+    <a href="/contact">Ir a la página de contacto</a>
+  </div>
+
+  <div class="about-link">
+    <a href="/about">Ir a la página de sobre mí</a>
+  </div>
+  <div class="blog-link">
+  <a href="/blog">Ir al blog</a>
+</div>
+</BaseLayout>

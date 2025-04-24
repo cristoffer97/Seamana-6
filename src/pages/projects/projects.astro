@@ -1,0 +1,25 @@
+---
+import { readFileSync } from 'fs';
+import path from 'path';
+
+// Cargar los proyectos desde el archivo JSON
+const projects = JSON.parse(readFileSync(path.resolve('src/content/projects.json'), 'utf-8'));
+---
+
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Proyectos</title>
+  </head>
+  <body>
+    <h1>Mis Proyectos</h1>
+
+    <ul>
+      {projects.map((project) => (
+        <li>
+          <a href={`/projects/${project.slug}`}>{project.title}</a> - {project.date}
+        </li>
+      ))}
+    </ul>
+  </body>
+</html>

@@ -1,0 +1,107 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+---
+
+<BaseLayout title="Contacto">
+  <style>
+    body {
+      font-family: 'Arial', sans-serif;
+      background-color: #f4f4f4;
+      margin: 0;
+      padding: 0;
+      color: #333;
+    }
+
+    h1 {
+      color: #1a73e8;
+      text-align: center;
+      margin-top: 50px;
+    }
+
+    form {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      margin-top: 20px;
+    }
+
+    label {
+      margin: 5px 0;
+    }
+
+    input, textarea {
+      padding: 10px;
+      margin-bottom: 10px;
+      width: 300px;
+      font-size: 16px;
+    }
+
+    button {
+      padding: 10px 20px;
+      background-color: #1a73e8;
+      color: white;
+      border: none;
+      cursor: pointer;
+    }
+
+    button:hover {
+      background-color: #0d58b7;
+    }
+
+    footer {
+      background-color: #333;
+      color: #fff;
+      text-align: center;
+      padding: 10px;
+      margin-top: 50px;
+    }
+
+    .navigation-links {
+      text-align: center;
+      margin-top: 30px;
+    }
+
+    .navigation-links a {
+      color: #1a73e8;
+      text-decoration: none;
+      margin: 0 15px;
+    }
+
+    .navigation-links a:hover {
+      text-decoration: underline;
+    }
+  </style>
+
+  <h1>Contacto</h1>
+  <form id="contact-form">
+    <label for="nombre">Nombre:</label><br />
+    <input type="text" id="nombre" name="nombre" required /><br /><br />
+
+    <label for="email">Email:</label><br />
+    <input type="email" id="email" name="email" required /><br /><br />
+
+    <label for="mensaje">Mensaje:</label><br />
+    <textarea id="mensaje" name="mensaje" required></textarea><br /><br />
+
+    <button type="submit">Enviar</button>
+  </form>
+
+  <div class="navigation-links">
+    <a href="/">Ir a la página de inicio</a>
+    <a href="/about">Ir a la página de sobre mí</a>
+  </div>
+  <div class="blog-link">
+  <a href="/blog">Ir al blog</a>
+</div>
+
+  <script>
+    document.getElementById('contact-form').addEventListener('submit', function(event) {
+      event.preventDefault();
+      const nombre = document.getElementById('nombre').value;
+      const email = document.getElementById('email').value;
+      const mensaje = document.getElementById('mensaje').value;
+      console.log('Formulario enviado:', nombre, email, mensaje);
+      alert('¡Formulario enviado con éxito!');
+    });
+  </script>
+</BaseLayout>

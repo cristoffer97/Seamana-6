@@ -1,0 +1,24 @@
+[
+    {
+      "slug": "proyecto-uno",
+      "title": "Proyecto Uno",
+      "description": "Este es un proyecto de ejemplo sobre el desarrollo de una aplicación web.",
+      "date": "2025-04-15",
+      "technologies": ["HTML", "CSS", "JavaScript"]
+    },
+    {
+      "slug": "proyecto-dos",
+      "title": "Proyecto Dos",
+      "description": "Una aplicación móvil desarrollada con React Native.",
+      "date": "2025-03-10",
+      "technologies": ["React Native", "JavaScript", "Redux"]
+    },
+    {
+      "slug": "proyecto-tres",
+      "title": "Proyecto Tres",
+      "description": "Un sitio web para gestionar tareas usando Node.js y Express.",
+      "date": "2025-01-05",
+      "technologies": ["Node.js", "Express", "MongoDB"]
+    }
+  ]
+  

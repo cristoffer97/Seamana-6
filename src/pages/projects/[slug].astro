@@ -1,0 +1,30 @@
+---
+import { readFileSync } from 'fs';
+import path from 'path';
+
+// Cargar los proyectos desde el archivo JSON
+const projects = JSON.parse(readFileSync(path.resolve('src/content/projects.json'), 'utf-8'));
+
+// Obtener el slug desde la URL
+const { slug } = Astro.params;
+
+// Buscar el proyecto correspondiente por el slug
+const project = projects.find((p) => p.slug === slug);
+
+if (!project) {
+  throw new Error('Proyecto no encontrado');
+}
+---
+
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <title>{project.title}</title>
+  </head>
+  <body>
+    <h1>{project.title}</h1>
+    <p><strong>Fecha de creación:</strong> {project.date}</p>
+    <p><strong>Descripción:</strong> {project.description}</p>
+    <p><strong>Tecnologías utilizadas:</strong> {project.technologies.join(', ')}</p>
+  </body>
+</html>

@@ -1,0 +1,43 @@
+---
+import { getCollection } from 'astro:content';
+import Header from '../../components/Header.astro';
+import Footer from '../../components/Footer.astro';
+
+// Obtén todos los post de la colección
+const post = await getCollection('post');
+
+// Función getStaticPaths para generar rutas estáticas
+export function getStaticPaths() {
+  return post.map((post) => ({
+    params: { slug: post.slug }  // Aquí debe cerrarse correctamente el objeto
+  }));
+}
+
+// Obtener el slug de la URL dinámica
+const { slug } = Astro.params;
+
+// Buscar el post correspondiente por el slug
+const foundPost = post.find((p) => p.slug === slug);  // Cambié "post" por "foundPost"
+
+if (!foundPost) {
+  throw new Error('Post no encontrado');
+}
+---
+
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <title>{foundPost.data.title}</title>
+  </head>
+  <body>
+    <Header />
+
+    <article>
+      <h1>{foundPost.data.title}</h1>
+      <p>{foundPost.data.pubDate.toDateString()}</p>
+      <div>{foundPost.body}</div> {/* Mostrar el contenido del post */}
+    </article>
+
+    <Footer />
+  </body>
+</html>
